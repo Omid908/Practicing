@@ -1,0 +1,23 @@
+sample_data = {
+    "name": "John Doe",
+    "age": 30,
+    "is_active": True,
+    "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "zip": "10001"
+    },
+    "skills": ["Python", "JavaScript", "SQL"],
+    "projects": [
+        {
+            "name": "E-commerce Website",
+            "year": 2022,
+            "technologies": ["Django", "React", "PostgreSQL"]
+        },
+        {
+            "name": "Data Analysis Tool",
+            "year": 2023,
+            "technologies": ["Pandas", "Matplotlib", "Scikit-learn"]
+        }
+    ]
+}
