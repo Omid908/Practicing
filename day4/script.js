@@ -36,7 +36,7 @@ else{
 let input;
 while (true) {
     input = prompt("Enter your favorite number");
-    if ( input !== null && input.trim() !== "" && !isNaN(input)){
+    if ( input !== null && input.trim() !== "" && !isNaN(input) ){
         input = Number(input);
         break;
     }
@@ -50,4 +50,32 @@ if(input === 7){
 else{
     document.getElementById("title").textContent = "Ah cool mine is 7 :)"
 }
+*/
+
+/*
+const day = 'Sunday';
+switch(day){
+    case 'monday':
+        console.log("It's Monday")
+        break;
+    case 'Tuesday':
+        console.log("It's Tuesday")
+        break;
+    case 'Wednseday':
+        console.log("It's Wednseday")
+        break;
+    case 'Thursday':
+        console.log("It's Thursday")
+        break;
+    case 'Friday':
+        console.log("It's Jummah")
+        break;
+    case 'Saturday':
+    case 'Sunday':
+        console.log("It's weekend :)")
+        break
+    default:
+        console.log("Enter a valid input")
+}
+
 */
