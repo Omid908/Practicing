@@ -10,6 +10,6 @@ class Person:
         print(f"Age: {self.age}")
         print(f"email : {self.email}")
 
-# Create an instance and display the info
+
 person = Person()
 person.display_info()
