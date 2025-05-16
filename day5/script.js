@@ -1,5 +1,5 @@
 const calcAverage = ( a , b , c ) => Number((( a + b + c ) / 3).toFixed(2));
-let avgDolphins = calcAverage (99,99,99);
+let avgDolphins = calcAverage (78,95,82);
 let avgKoalas = calcAverage (85,11,11);
 function checkWinner ( avgDolphins , avgKoalas ){
     if ( avgDolphins >= 2 * avgKoalas){
