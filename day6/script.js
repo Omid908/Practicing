@@ -1,3 +1,4 @@
+'use strict';
 /*
 const ahmad = {
     firstname : "Ahmad",
@@ -39,8 +40,8 @@ const ahmad = {
 console.log(ahmad.calcAge());
 console.log(ahmad.age);
 console.log(ahmad.getSummary());
-*/
-/* Write your code below. Good luck! 🙂 */
+
+
 const mark = {
     fullName : 'Mark Miller',
     mass : 78,
@@ -63,4 +64,9 @@ if( john.calcBMI() > mark.calcBMI()){
     console.log(`${john.fullName}'s BMI ${john.bmi} is higher than Mark Miller's ${mark.bmi}`);
 } else{
     console.log(`${mark.fullName}'s BMI ${mark.bmi} is higher than John Smith's ${john.bmi}`);
+}
+*/
+
+for ( let rep = 1 ; rep <= 10 ; rep ++){
+    console.log(`Lifting weight repetation ${rep} 🏋️‍♂️`);
 }
