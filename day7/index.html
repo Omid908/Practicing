@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaction Time Game</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {height: 100vh; display: flex; justify-content: center; align-items: center; background: #111; font-family: sans-serif; color: white; flex-direction: column;}
+    #shape {position: absolute; display: none; cursor: pointer;}
+    #start {padding: 12px 24px; font-size: 18px; background: #1e90ff; border: none; border-radius: 8px; color: white;}
+    #score {margin-top: 20px; font-size: 22px;}
+  </style>
+</head>
+<body>
+  <button id="start">Start Game</button>
+  <div id="shape"></div>
+  <div id="score">Reaction Time: --</div>
+
+  <script>
+    const shape = document.getElementById("shape")
+    const start = document.getElementById("start")
+    const score = document.getElementById("score")
+    let appearTime = 0
+
+    const randomColor = () => `hsl(${Math.random() * 360}, 100%, 50%)`
+
+    const makeShapeAppear = () => {
+      const size = Math.random() * 100 + 50
+      const top = Math.random() * (window.innerHeight - size - 20)
+      const left = Math.random() * (window.innerWidth - size - 20)
+      const isCircle = Math.random() > 0.5
+      shape.style.backgroundColor = randomColor()
+      shape.style.borderRadius = isCircle ? "50%" : "0%"
+      shape.style.width = size + "px"
+      shape.style.height = size + "px"
+      shape.style.top = top + "px"
+      shape.style.left = left + "px"
+      shape.style.transition = `all ${Math.random() * 0.3 + 0.1}s ease`
+      shape.style.display = "block"
+      appearTime = Date.now()
+    }
+
+    const appearAfterDelay = () => {
+      shape.style.display = "none"
+      setTimeout(makeShapeAppear, Math.random() * 1500 + 500)
+    }
+
+    shape.addEventListener("click", () => {
+      const reactionTime = (Date.now() - appearTime) / 1000
+      shape.style.display = "none"
+      score.textContent = `Reaction Time: ${reactionTime.toFixed(3)}s`
+      appearAfterDelay()
+    })
+
+    start.addEventListener("click", () => {
+      start.style.display = "none"
+      appearAfterDelay()
+    })
+  </script>
+</body>
+</html>
