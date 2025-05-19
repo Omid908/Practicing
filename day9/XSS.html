@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>XSS Practice</title>
+</head>
+<body>
+  <h2>Search Page</h2>
+  <input type="text" id="searchInput" placeholder="Type your search" />
+  <button onclick="search()">Search</button>
+  <div id="results"></div>
+
+  <script>
+    function search() {
+      const query = document.getElementById('searchInput').value;
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = ''; // clear previous results
+
+      const p = document.createElement('p');
+      p.textContent = 'Results for: ' + query;  // safe: user input treated as text
+      resultsDiv.appendChild(p);
+    }
+  </script>
+
+  <!-- 
+    Vulnerable version below (commented safely outside <script>):
+    
+    <script>
+      function search() {
+        const query = document.getElementById('searchInput').value;
+        // Vulnerable code: inserts raw user input into innerHTML
+        document.getElementById('results').innerHTML = 
+          '<p>Results for: ' + query + '</p>';
+      }
+    </script>
+  -->
+
+</body>
+</html>

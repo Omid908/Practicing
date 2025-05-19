@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Page</title>
+</head>
+<body>
+  <h2>Welcome!</h2>
+  <div id="welcomeMsg"></div>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    document.getElementById('welcomeMsg').innerHTML = "Hello " + name;
+  </script>
+</body>
+</html>
