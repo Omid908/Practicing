@@ -1,3 +1,5 @@
+// Shallow Copy and Deep Copy
+/*
 let jessica = {
     firstName : 'Jessica',
     lastName : 'William',
@@ -21,3 +23,40 @@ console.log(newJessica3.firstName);
 console.log(newJessica3.family);
 console.log(jessica.firstName);
 console.log(jessica.family);
+*/
+
+const restaurant = {
+  nameofRestaurant: "Classico Italiano",
+  location: "idkstreet 80",
+  catagories: ["Italian", "American", "Arabic", "Persian", "Turkish"],
+  starterMenu: ["Garlic-Bread", "Bread", "Salad"],
+  mainMenu: ["Pizza", "Pasta", "idk"],
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+};
+let arr = [1, 2, 3];
+
+let [x, y, z] = arr;
+console.log(x, y, z);
+console.log(arr);
+
+let [main, , , secondary] = restaurant.catagories;
+console.log(main, secondary);
+//Swithching
+[main, secondary] = [secondary, main];
+console.log(main, secondary);
+
+const [starter, mainmeal] = restaurant.order(2, 0);
+console.log(starter, mainmeal);
+// Nested distructering
+const nested = [2, 4, [5, 6]];
+const [i, , [j, k]] = nested;
+console.log(i, j, k);
+const nested2 = [2, 4, 5, 6, [2, 4, 3, 5, [2, 7, 8, 5]]];
+const [a, b, c, d, [e, f, g, h, [l, , ,]]] = nested2;
+console.log(a, b, c, e, f, h, i);
+//Default values if you define a variable to an array element that doesn't exist it'll be undefined but you can give a default value to
+//each of the variables so you won't encounter undefined in console.
+const [p = 1, q = 1, r = 1] = [9, 10];
+console.log(p, q, r);
