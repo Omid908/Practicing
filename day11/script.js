@@ -161,9 +161,9 @@
 // //for adding space after first character just add + " " + after toUpperCase and before slicing
 //------------------- && || ! == === != !=== -------------------------
 //------------------- While loop & Do While loop -------------------------
-let username = "";
+// let username = "";
 
-while (username === "" || username === null) {
-  username = window.prompt("Enter your username: "); // ← ASSIGN THE VALUE
-}
-console.log(`Hello ${username}`);
+// while (username === "" || username === null) {
+//   username = window.prompt("Enter your username: "); // ← ASSIGN THE VALUE
+// }
+// console.log(`Hello ${username}`);
