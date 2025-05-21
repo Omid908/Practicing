@@ -1,0 +1,26 @@
+/* body {
+  background-color: black;
+}
+.info {
+  font-size: 25px;
+  text-align: center;
+  justify-content: center;
+  color: white;
+}
+.heading {
+  color: white;
+  font-size: 25px;
+  padding-left: 4.5%;
+} */
+#countlabel {
+  display: block;
+  font-size: 5em;
+  text-align: center;
+}
+#btncontainer {
+  text-align: center;
+}
+.btn {
+  padding: 10px 20px;
+  font-size: 1em;
+}

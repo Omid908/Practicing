@@ -1,0 +1,2 @@
+playerchoice = 'rock'
+computerchoice = 'paper'
