@@ -44,3 +44,18 @@ let sum = function (...numbers) {
   return result;
 };
 console.log(`Your total is $${sum(2, 3, 67, 567, 34)}`);
+let avrg = function (...nums) {
+  let result = 0;
+  for (let num of nums) {
+    result += num;
+  }
+  return result / nums.length;
+};
+let total = avrg(2, 3, 4, 8, 9, 10, 2, 3);
+console.log(total);
+
+let combining = function (...str) {
+  return str.join(" ");
+};
+let fullname = combining("Ahmad", "Amiri");
+console.log(fullname);
