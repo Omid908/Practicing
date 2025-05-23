@@ -1,3 +1,4 @@
+"use strict";
 //------------------- Random Password Generator --------------------
 
 // const generatePasswd = function (
@@ -114,22 +115,62 @@
 //------------------- .filter() method --------------------
 
 //.filter() goes through every element in an array and keeps only those that pass your test (the condition you give).
-const students = [16, 17, 16, 18, 20, 21, 17, 22];
-const teenagers = students.filter(teenager);
-function teenager(element) {
-  return element < 18;
-}
-console.log(teenagers);
+// const students = [16, 17, 16, 18, 20, 21, 17, 22];
+// const teenagers = students.filter(teenager);
+// function teenager(element) {
+//   return element < 18;
+// }
+// console.log(teenagers);
 
-const emails = [
-  "john@example.com",
-  "hacker@evil.com",
-  "admin@gmail.com",
-  "spam@trash.com",
-];
-const newdta = emails.filter(newemail);
-function newemail(element) {
-  let valid = element.split("@")[1];
-  return valid === "gmail.com";
-}
-console.log(newdta);
+// const emails = [
+//   "john@example.com",
+//   "hacker@evil.com",
+//   "admin@gmail.com",
+//   "spam@trash.com",
+// ];
+// const newdta = emails.filter(newemail);
+// function newemail(element) {
+//   let valid = element.split("@")[1];
+//   return valid === "gmail.com";
+// }
+// console.log(newdta);
+
+//------------------- .reduce() method --------------------
+
+//.reduce() is a method that takes an array and “reduces” it to a single value — like a sum, product, or any combined result.
+// const num = [10, 40, 25];
+// const total = num.reduce(function (accumelator, element) {
+//   return accumelator + element;
+// });
+// console.log(`Your total is $${total}`);
+
+// const grades = [89, 96, 99, 10];
+// const maximum = grades.reduce(function (accumelator, element) {
+//   return Math.max(accumelator, element);
+// });
+// console.log(maximum);
+
+//------------------- Functoin Declearation and Expression --------------------
+// In function decleration you define a function and name it but can't use it as a value or argument in other places but with
+//Function expression you pass the function as a value or variable and can use it in multiple places with no problem.
+const number = [1, 2, 3, 4, 5];
+const newnumber = number.map(function (element) {
+  return Math.pow(element, 2);
+});
+console.log(newnumber);
+const evennum = number.filter(function (element) {
+  return element % 2 === 0;
+});
+console.log(evennum);
+
+let hello = (firstName) => console.log(`Hi ${firstName}`);
+hello("Mohammad");
+
+const newnum = number.reduce(
+  (accumelator, element) => ({
+    sum: accumelator.sum + element,
+    product: accumelator.product * element,
+  }),
+  { sum: 0, product: 1 }
+);
+console.log(newnum);
