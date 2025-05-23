@@ -313,3 +313,69 @@
 // }
 // console.log(Circle.getArea(2).toFixed(2));
 // Circle.Information(5);
+//------------------- Inheritance --------------------
+// class Parent {
+//   greet() {
+//     console.log("Hello from Parent");
+//   }
+// }
+// class Child extends Parent {
+//   childGreet() {
+//     console.log("Hello from Child");
+//   }
+// }
+// const child = new Child();
+// child.greet();
+// child.childGreet();
+// class Scanner {
+//   constructor(target) {
+//     this.target = target;
+//   }
+//   scan() {
+//     console.log(`Scanning ${this.target}`);
+//   }
+// }
+// class XSSscanner extends Scanner {
+//   payload() {
+//     console.log(`<script>alert("XSS")</script>`);
+//   }
+// }
+// const newtarget = new XSSscanner("google.com");
+// newtarget.scan();
+// newtarget.payload();
+class Animal {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+class Rabbit extends Animal {
+  constructor(name, age, runspeed) {
+    super(name, age);
+    this.runspeed = runspeed;
+  }
+}
+class Fish extends Animal {
+  constructor(name, age, swimspeed) {
+    super(name, age);
+    this.swimspeed = swimspeed;
+  }
+}
+class Hawk extends Animal {
+  constructor(name, age, flyingspeed) {
+    super(name, age);
+    this.flyingspeed = flyingspeed;
+  }
+  introduction() {
+    console.log(
+      `this is a ${this.name} , it's age is ${this.age}, and flies with ${this.flyingspeed}km per hours`
+    );
+  }
+}
+
+const rabit = new Rabbit("rabbit", 25, 32);
+const fish = new Fish("fish", 20, 12);
+const hawk = new Hawk("hawk", 10, 320);
+console.log(rabit);
+console.log(fish);
+hawk.introduction();
