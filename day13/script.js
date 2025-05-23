@@ -226,3 +226,90 @@
 // }
 // const attempt1 = new Information("Ahmad", 1234);
 // attempt1.login();
+//------------------- Class --------------------
+//A class is a template for creating objects. better than constructor
+//***** Note : Arrow functions doesn't have this. keyword so shouldn't be used in a class!
+// class Product {
+//   constructor(name, price) {
+//     this.name = name;
+//     this.price = price;
+//   }
+//   displayProduct() {
+//     console.log(`Product is ${this.name} and it's price is ${this.price}`);
+//   }
+//   calculateTotal(saelstax) {
+//     return this.price * (this.price + saelstax);
+//   }
+// }
+// const tax = 0.5;
+// const product1 = new Product("T-Shirt", 19.99);
+// const total = product1.calculateTotal(tax).toFixed(2);
+// product1.displayProduct();
+// console.log(`The total amount ( with tax ) is $${total}`);
+// class Hacker {
+//   constructor(firstName, rank) {
+//     this.firstName = firstName;
+//     this.rank = rank;
+//   }
+//   introduction() {
+//     console.log(`Hello i'm ${this.firstName}, my rank is ${this.rank}`);
+//   }
+// }
+// const hacker1 = new Hacker("Ahmad", "Elite");
+// hacker1.introduction();
+//------------------- Static keyword --------------------
+//A static method or property in JavaScript is one that belongs to the class itself, not to instances (objects) created from the class.
+// class Hacker {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   sayhello() {
+//     console.log(`Hello my name is ${this.name}`);
+//   }
+//   static powerlevel() {
+//     console.log("Hackers are unstopable");
+//   }
+// }
+// const newHacker = new Hacker("Ahmad");
+// newHacker.sayhello();
+// Hacker.powerlevel;
+// class Scanner {
+//   constructor(target, status = "idle") {
+//     this.target = target;
+//     this.status = status;
+//   }
+//   startScan() {
+//     this.status = "scanning";
+//     console.log(`Started scanning ${this.target}`);
+//   }
+//   stopScan() {
+//     this.status = "stopped";
+//     console.log(`Scan for ${this.target} is ${this.status}`);
+//   }
+//   static getSignature() {
+//     console.log(`Scanner Signature: v1.0-SECURE`);
+//   }
+// }
+// const newtarget = new Scanner("google.com", "idle");
+// newtarget.startScan();
+// newtarget.stopScan();
+// Scanner.getSignature();
+// class Circle {
+//   static PI = Math.PI.toFixed(3);
+//   static getDiameter(radius) {
+//     return radius * this.PI;
+//   }
+//   static getCircumference(radius) {
+//     return 2 * this.PI * radius;
+//   }
+//   static getArea(radius) {
+//     return this.PI * Math.pow(radius, 2);
+//   }
+//   static Information(number) {
+//     console.log(this.getDiameter(number).toFixed(2));
+//     console.log(this.getCircumference(number).toFixed(2));
+//     console.log(this.getArea(number).toFixed(2));
+//   }
+// }
+// console.log(Circle.getArea(2).toFixed(2));
+// Circle.Information(5);
