@@ -153,24 +153,76 @@
 //------------------- Functoin Declearation and Expression --------------------
 // In function decleration you define a function and name it but can't use it as a value or argument in other places but with
 //Function expression you pass the function as a value or variable and can use it in multiple places with no problem.
-const number = [1, 2, 3, 4, 5];
-const newnumber = number.map(function (element) {
-  return Math.pow(element, 2);
-});
-console.log(newnumber);
-const evennum = number.filter(function (element) {
-  return element % 2 === 0;
-});
-console.log(evennum);
+// const number = [1, 2, 3, 4, 5];
+// const newnumber = number.map(function (element) {
+//   return Math.pow(element, 2);
+// });
+// console.log(newnumber);
+// const evennum = number.filter(function (element) {
+//   return element % 2 === 0;
+// });
+// console.log(evennum);
 
-let hello = (firstName) => console.log(`Hi ${firstName}`);
-hello("Mohammad");
+// let hello = (firstName) => console.log(`Hi ${firstName}`);
+// hello("Mohammad");
 
-const newnum = number.reduce(
-  (accumelator, element) => ({
-    sum: accumelator.sum + element,
-    product: accumelator.product * element,
-  }),
-  { sum: 0, product: 1 }
-);
-console.log(newnum);
+// const newnum = number.reduce(
+//   (accumelator, element) => ({
+//     sum: accumelator.sum + element,
+//     product: accumelator.product * element,
+//   }),
+//   { sum: 0, product: 1 }
+// );
+// console.log(newnum);
+//------------------- Objects ( begginer level ) --------------------
+// *** Note: this. keyword doesn't work on arrow functions
+// let person1 = {
+//   firstName: "Ahmad",
+//   lastName: "Amiri",
+//   age: 25,
+//   introduction: function () {
+//     console.log(
+//       `Hello i'm ${this.firstName} and my lastname is ${this.lastName}, i am ${this.age} years old`
+//     );
+//   },
+//   eat: (food) => {
+//     console.log(`Currently i'm eating ${food}`);
+//   },
+// };
+// console.log(person1.firstName);
+// person1.introduction();
+// person1.eat("Burger");
+//------------------- Constructor --------------------
+// function Personality(name, lastName, age, behavior) {
+//   this.name = name;
+//   this.lastName = lastName;
+//   this.age = age;
+//   this.behavior = behavior;
+//   this.introduction = function () {
+//     console.log(
+//       `Hey everyone i'm ${name}, my lastname is ${lastName} and i'm ${age} years old a fun fact about me is that i have a ${behavior} behavior :) `
+//     );
+//   };
+// }
+// const person1 = new Personality("Ahmad", "Amiri", 25, "Weird");
+// person1.introduction();
+
+// function Payload(type, value) {
+//   (this.type = type),
+//     (this.value = value),
+//     (this.send = function () {
+//       console.log(`Testing ${this.type} : Payload ${this.value}`);
+//     });
+// }
+// const XSS = new Payload("XSS", "<script>alert(1)</script>");
+// XSS.send();
+
+// function Information(username, password) {
+//   (this.username = username),
+//     (this.password = password),
+//     (this.login = function () {
+//       console.log(`Trying login with ${this.username} : ${this.password}`);
+//     });
+// }
+// const attempt1 = new Information("Ahmad", 1234);
+// attempt1.login();
