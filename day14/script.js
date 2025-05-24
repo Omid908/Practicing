@@ -181,24 +181,71 @@
 // console.log(id);
 // console.log(username);
 // console.log(`Bug reported ${bugreported} which includs #${critical} Critical`);
-const Person = {
-  fullname: "Ahmad",
-  lastname: "Amiri",
-  age: 25,
-  jbo: "Student",
-  address: {
-    street: "nowhere",
-    city: "idk",
-    country: "earth",
-    zip_code: 0,
-  },
-};
-function show() {
-  for (let element in Person.address) {
-    console.log(Person.address[element]);
+// const Person = {
+//   fullname: "Ahmad",
+//   lastname: "Amiri",
+//   age: 25,
+//   jbo: "Student",
+//   address: {
+//     street: "nowhere",
+//     city: "idk",
+//     country: "earth",
+//     zip_code: 0,
+//   },
+// };
+// function show() {
+//   for (let element in Person.address) {
+//     console.log(Person.address[element]);
+//   }
+// }
+// console.log(Person.fullname);
+// console.log(Person.lastname);
+// console.log(Person.address);
+// show();
+class Person {
+  constructor(name, lastname, ...address) {
+    this.name = name;
+    this.lastname = lastname;
+    this.address = new Address(...address);
   }
 }
-console.log(Person.fullname);
-console.log(Person.lastname);
-console.log(Person.address);
-show();
+class Address {
+  constructor(street, city, country) {
+    this.street = street;
+    this.city = city;
+    this.country = country;
+  }
+}
+const person1 = new Person(
+  "Ahmad",
+  "Amiri",
+  "IDK street",
+  "IDK city",
+  "IDK country"
+);
+console.log(person1.address.city);
+const hacker = {
+  id: 1,
+  profile: {
+    username: "Ahmad",
+    reports: {
+      bugs: 14,
+      critical: 3,
+    },
+  },
+};
+function information({
+  profile: {
+    reports: { bugs, critical },
+  },
+}) {
+  console.log(`Bugs found : ${bugs} | Critical : ${critical}`);
+}
+information({
+  profile: {
+    reports: {
+      bugs: 17,
+      critical: 4,
+    },
+  },
+});
