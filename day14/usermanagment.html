@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management UI</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #0f172a;
+        color: #f1f5f9;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: auto;
+        background-color: #1e293b;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        font-weight: 800;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 8px;
+        border: 1px solid #334155;
+        background-color: #0f172a;
+        color: #f1f5f9;
+      }
+
+      button {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+        background: linear-gradient(135deg, #06b6d4, #3b82f6);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      }
+
+      .user-list {
+        margin-top: 2rem;
+      }
+
+      .user-card {
+        background: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 10px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        transition: transform 0.2s ease;
+      }
+
+      .user-card:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Bug Bounty User Manager</h1>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" />
+      </div>
+      <div class="form-group">
+        <label for="reputation">Reputation</label>
+        <input type="number" id="reputation" />
+      </div>
+      <div class="form-group">
+        <label for="bugs">Reported Bugs (comma separated)</label>
+        <textarea id="bugs"></textarea>
+      </div>
+      <button onclick="addResearcher()">Add Researcher</button>
+      <div class="user-list" id="userList"></div>
+    </div>
+
+    <script>
+      class User {
+        constructor(username, email, reputation) {
+          this.username = username;
+          this.email = email;
+          this.reputation = reputation;
+        }
+
+        set username(value) {
+          if (typeof value === "string" && value.length >= 3) {
+            this._username = value;
+          } else {
+            alert("Username must be at least 3 characters long.");
+          }
+        }
+
+        get username() {
+          return this._username;
+        }
+
+        set email(value) {
+          const emailRegex = /^\S+@\S+\.\S+$/;
+          if (emailRegex.test(value)) {
+            this._email = value;
+          } else {
+            alert("Invalid email format.");
+          }
+        }
+
+        get email() {
+          return this._email;
+        }
+
+        set reputation(value) {
+          if (typeof value === "number" && value >= 0) {
+            this._reputation = value;
+          } else {
+            alert("Reputation must be a non-negative number.");
+          }
+        }
+
+        get reputation() {
+          return this._reputation;
+        }
+
+        intro() {
+          return `👤 ${this.username} (${this.email}) | Reputation: ${this.reputation}`;
+        }
+      }
+
+      class Researcher extends User {
+        constructor(username, email, reputation, bugsReported) {
+          super(username, email, reputation);
+          this.bugsReported = bugsReported;
+        }
+
+        set bugsReported(value) {
+          if (Array.isArray(value)) {
+            this._bugsReported = value;
+          } else {
+            alert("Bugs should be an array.");
+          }
+        }
+
+        get bugsReported() {
+          return this._bugsReported;
+        }
+
+        showProfile() {
+          return `${this.intro()}\n🪲 Bugs: ${this.bugsReported.join(", ")}`;
+        }
+      }
+
+      function addResearcher() {
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const reputation = parseInt(
+          document.getElementById("reputation").value
+        );
+        const bugs = document
+          .getElementById("bugs")
+          .value.split(",")
+          .map((b) => b.trim())
+          .filter((b) => b);
+
+        const newResearcher = new Researcher(username, email, reputation, bugs);
+        displayResearcher(newResearcher);
+      }
+
+      function displayResearcher(researcher) {
+        const container = document.getElementById("userList");
+        const div = document.createElement("div");
+        div.className = "user-card";
+        div.innerText = researcher.showProfile();
+        container.appendChild(div);
+      }
+    </script>
+  </body>
+</html>
