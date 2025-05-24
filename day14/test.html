@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bug Report Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 min-h-screen p-6">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">
+        Bug Report Dashboard
+      </h1>
+
+      <div class="mb-4 flex flex-col md:flex-row justify-between gap-4">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by URL or Type..."
+          class="w-full md:w-1/2 p-2 rounded border border-gray-300"
+        />
+        <select
+          id="severityFilter"
+          class="w-full md:w-1/4 p-2 rounded border border-gray-300"
+        >
+          <option value="">All Severities</option>
+          <option value="Critical">Critical</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <div id="bugList" class="grid gap-4"></div>
+    </div>
+
+    <script>
+      const bugReports = [
+        {
+          id: 1,
+          url: "https://target.com/login",
+          type: "SQL Injection",
+          severity: "High",
+          reportedAt: "2025-05-20",
+          status: "Pending",
+        },
+        {
+          id: 2,
+          url: "https://target.com/api/user",
+          type: "Broken Auth",
+          severity: "Critical",
+          reportedAt: "2025-05-21",
+          status: "Fixed",
+        },
+        {
+          id: 3,
+          url: "https://example.com/dashboard",
+          type: "XSS",
+          severity: "Medium",
+          reportedAt: "2025-05-22",
+          status: "Unresolved",
+        },
+      ];
+
+      const bugList = document.getElementById("bugList");
+      const searchInput = document.getElementById("searchInput");
+      const severityFilter = document.getElementById("severityFilter");
+
+      function displayBugs(bugs) {
+        bugList.innerHTML = "";
+        if (bugs.length === 0) {
+          bugList.innerHTML =
+            '<p class="text-center text-gray-500">No bug reports found.</p>';
+          return;
+        }
+
+        bugs.forEach((bug) => {
+          const bugCard = document.createElement("div");
+          bugCard.className =
+            "bg-white p-4 rounded shadow hover:shadow-lg transition";
+          bugCard.innerHTML = `
+          <h2 class="text-xl font-semibold text-gray-800">${bug.type}</h2>
+          <p class="text-gray-600 text-sm">URL: <a href="${bug.url}" target="_blank" class="text-blue-600 underline">${bug.url}</a></p>
+          <p class="text-gray-600">Severity: <span class="font-medium">${bug.severity}</span></p>
+          <p class="text-gray-600">Reported At: ${bug.reportedAt}</p>
+          <p class="text-gray-600">Status: <span class="font-semibold">${bug.status}</span></p>
+        `;
+          bugList.appendChild(bugCard);
+        });
+      }
+
+      function filterBugs() {
+        const query = searchInput.value.toLowerCase();
+        const severity = severityFilter.value;
+
+        const filtered = bugReports.filter((bug) => {
+          const matchesQuery =
+            bug.url.toLowerCase().includes(query) ||
+            bug.type.toLowerCase().includes(query);
+          const matchesSeverity = severity === "" || bug.severity === severity;
+          return matchesQuery && matchesSeverity;
+        });
+
+        displayBugs(filtered);
+      }
+
+      searchInput.addEventListener("input", filterBugs);
+      severityFilter.addEventListener("change", filterBugs);
+
+      // Initial display
+      displayBugs(bugReports);
+    </script>
+  </body>
+</html>

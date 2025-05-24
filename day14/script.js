@@ -202,50 +202,97 @@
 // console.log(Person.lastname);
 // console.log(Person.address);
 // show();
-class Person {
-  constructor(name, lastname, ...address) {
-    this.name = name;
-    this.lastname = lastname;
-    this.address = new Address(...address);
-  }
-}
-class Address {
-  constructor(street, city, country) {
-    this.street = street;
-    this.city = city;
-    this.country = country;
-  }
-}
-const person1 = new Person(
-  "Ahmad",
-  "Amiri",
-  "IDK street",
-  "IDK city",
-  "IDK country"
-);
-console.log(person1.address.city);
-const hacker = {
-  id: 1,
-  profile: {
-    username: "Ahmad",
-    reports: {
-      bugs: 14,
-      critical: 3,
-    },
+// class Person {
+//   constructor(name, lastname, ...address) {
+//     this.name = name;
+//     this.lastname = lastname;
+//     this.address = new Address(...address);
+//   }
+// }
+// class Address {
+//   constructor(street, city, country) {
+//     this.street = street;
+//     this.city = city;
+//     this.country = country;
+//   }
+// }
+// const person1 = new Person(
+//   "Ahmad",
+//   "Amiri",
+//   "IDK street",
+//   "IDK city",
+//   "IDK country"
+// );
+// console.log(person1.address.city);
+// const hacker = {
+//   id: 1,
+//   profile: {
+//     username: "Ahmad",
+//     reports: {
+//       bugs: 14,
+//       critical: 3,
+//     },
+//   },
+// };
+// function information({
+//   profile: {
+//     reports: { bugs, critical },
+//   },
+// }) {
+//   console.log(`Bugs found : ${bugs} | Critical : ${critical}`);
+// }
+// information({
+//   profile: {
+//     reports: {
+//       bugs: 17,
+//       critical: 4,
+//     },
+//   },
+// });
+//------------------- Array of objects ---------------------------
+const bugreports = [
+  {
+    id: 1,
+    type: "XSS",
+    dateReported: "2025/7/2",
+    status: "triaged",
+    severity: "High",
+    bounty: 500,
   },
-};
-function information({
-  profile: {
-    reports: { bugs, critical },
+  {
+    id: 2,
+    type: "IDOR",
+    dateReported: "2025/7/2",
+    status: "fixed",
+    severity: "Critical",
+    bounty: 1000,
   },
-}) {
-  console.log(`Bugs found : ${bugs} | Critical : ${critical}`);
-}
-information({
-  profile: {
-    reports: {
-      bugs: 17,
-      critical: 4,
-    },
-  },
+];
+bugreports.push({
+  id: 3,
+  type: "XSS",
+  status: "fixed",
+  severity: "critical",
+  bounty: 2000,
 });
+bugreports.forEach((bug) => {
+  console.log(
+    `ID : ${bug.id} | Type : ${bug.type} | ${bug.severity} | $${bug.bounty} | ${bug.status}`
+  );
+});
+const impact = bugreports.filter(function (bug) {
+  return bug.severity === "High";
+});
+console.log(impact);
+bugreports.forEach((bug) => {
+  console.log(bug.type);
+});
+const type = bugreports.filter((theType) => theType.type === "XSS");
+console.log(type);
+const fixedbugs = bugreports.filter((x) => x.status === "fixed");
+console.log(fixedbugs);
+const bug = bugreports.find((x) => x.id === 1);
+console.log(bug);
+bugreports.forEach((x) => console.log(x.id));
+const newIdArray = bugreports.map((x) => x.id);
+console.log(newIdArray);
