@@ -1,0 +1,20 @@
+[
+  {
+    "name": "SpongeBob",
+    "age": 30,
+    "isemployed": true,
+    "hobbies": ["Jellyfishing", "Cooking", "Karate"]
+  },
+  {
+    "name": "Sandy",
+    "age": 27,
+    "isemployed": true,
+    "hobbies": ["Painting", "Cooking", "Football"]
+  },
+  {
+    "name": "Squidward",
+    "age": 30,
+    "isemployed": true,
+    "hobbies": ["Nothing1", "Nothing2", "Nothing3"]
+  }
+]
