@@ -24,7 +24,4 @@ function displayUser(user) {
 }
 
 newUserBtn.addEventListener("click", fetchUser);
-
-// Fetch initial user on page load
 fetchUser();
-// this is a program that i'll try to rebuild it from scratch myself
