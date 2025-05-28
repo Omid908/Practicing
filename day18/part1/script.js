@@ -78,7 +78,30 @@
 //     .then((value) => console.log(value));
 // }
 // runalltasks();
-fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
-  .then((response) => response.json())
-  .then((data) => console.log(data.name))
-  .catch((error) => console.error(error));
+// fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error("couldn't fetch the resource");
+//     } else {
+//       return response.json();
+//     }
+//   })
+//   .then((data) => console.log(data.name))
+//   .catch((error) => console.error(error));
+async function getData() {
+  try {
+    const input = document.getElementById("pockomanName").value.toLowerCase();
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${input}`);
+    if (!response.ok) {
+      console.error("Couldn't fetch the error");
+    } else {
+      const data = await response.json();
+      const pockomanSpirit = data.sprites.front_default;
+      const img = document.getElementById("pockomanSpirits");
+      img.src = pockomanSpirit;
+      img.style.display = "block";
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
