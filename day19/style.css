@@ -1,52 +1,101 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container {
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+body {
+  background-color: #f0f2f5;
+  color: #050505;
 }
 
-h1,
-h2 {
-  color: #333;
+header {
+  background-color: #1877f2;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-label {
-  display: block;
-  margin-top: 10px;
+header h1 {
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
-input,
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+  color: #333;
+}
+
+input[type="text"],
 textarea {
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1877f2;
+  background-color: #fff;
 }
 
 button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+  background-color: #1877f2;
+  color: white;
+  padding: 0.7rem 1.2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #165fbe;
 }
 
-#storedFeedback {
-  margin-top: 20px;
+.feedback-container {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.feedback-entry {
+  background-color: #f5f6f7;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 1px solid #e4e6eb;
+  transition: all 0.3s;
+}
+
+.feedback-entry:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
 }

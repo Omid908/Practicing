@@ -25,3 +25,4 @@ function displayUser(user) {
 
 newUserBtn.addEventListener("click", fetchUser);
 fetchUser();
+//this is just a comment
