@@ -1,0 +1,29 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM XSS Demo Site</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Vulnerable Feedback Page</h1>
+      <form id="feedbackForm">
+        <label for="username">Name:</label>
+        <input type="text" id="username" name="username" />
+
+        <label for="feedback">Your feedback:</label>
+        <textarea id="feedback" name="feedback"></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <h2>User Feedback</h2>
+      <div id="storedFeedback"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
