@@ -48,8 +48,13 @@
 // } else {
 //   alert("Wrong username");
 // }
-let i = 4;
-while (i) {
-  alert(i);
-  i--;
+// let i = 4;
+// while (i) {
+//   alert(i);
+//   i--;
+// }
+for (let i = 0; i < 10; i++) {
+  if (i % 2) {
+    console.log(i);
+  }
 }
