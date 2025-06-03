@@ -84,3 +84,23 @@
 // } else {
 //   alert("Access Denied");
 // }
+// let square = (num) => {
+//   return num * num;
+// };
+// console.log(square(3));
+// function runCallback(callback) {
+//   callback("🔥");
+// }
+// runCallback(function (msg) {
+//   console.log("Message is:", msg);
+// });
+// runCallback();
+function showprime(n) {
+  nextPrime: for (let i = 2; i < n; i++) {
+    for (let j = 2; j < i; j++) {
+      if (i % j == 0) continue nextPrime;
+    }
+    console.log(i);
+  }
+}
+showprime(12);
