@@ -71,3 +71,16 @@
 //   console.log(count);
 // }
 // showcount();
+// function checkage(age) {
+//   if (age >= 18) {
+//     return true;
+//   } else {
+//     return confirm("Do you have permission from your parents?");
+//   }
+// }
+// let age = prompt("Enter your age");
+// if (checkage(age)) {
+//   alert("Access guaranteed");
+// } else {
+//   alert("Access Denied");
+// }
