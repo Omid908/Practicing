@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Some Site</title>
+
+	<script>
+		var postMessageHandler = function(e) {
+			// e.origin should be checked here
+			msg = JSON.parse(e.data)
+			if (msg.readyToPlay){
+				document.getElementById("fs").innerText = "Ready to showcase your SUDOKU skills Mr. " + msg.name;
+				if (msg.url){
+					window.open(msg.url)
+				}
+			}
+		}
+		window.addEventListener("message", postMessageHandler, false);
+	</script>
+
+</head>
+<body>
+
+<h2 id="fs">Game is loading...</h2>
+<img src="Sudoku.png">
+
+</body>
+</html>
