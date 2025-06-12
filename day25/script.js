@@ -50,3 +50,4 @@ function changeTitleWithjQuery() {
 
 // Start the process
 loadjQueryAndChangeTitle();
+//in day26 new code exists.
