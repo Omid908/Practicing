@@ -43,7 +43,7 @@ while True:
     value = input("Enter the values of list ")
     if value == '':
         break
-    my_list.append(int(value)) # we use append to add element to a list
+    my_list.append(int(value)) # we use append to add element to a list, we use Extend too but it has different usage
 
 if len(my_list) >= 2:
     print("Second last element :" , my_list[-2])
