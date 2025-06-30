@@ -49,8 +49,7 @@ import sys
 # else:
 #     user_input = sys.argv[1]
 #     print(user_input)
-
-file_name = 'new.txt'
+file_name = sys.argv[1]
 with open(file_name , 'r') as file:
     content = file.read()
     print(content)
