@@ -5,7 +5,6 @@ if len(sys.argv) == 2:
     for item in res.json():
         print(item.get('name'))
         print(item.get('id'))
-
 else:
     print('- Python3 regex3.py [username]')
 # import json
